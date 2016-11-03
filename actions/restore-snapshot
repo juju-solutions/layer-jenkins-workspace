@@ -25,6 +25,7 @@ cp $RESOURCE_FILE /var/lib/jenkins/jobs/workspaces.tgz
 cd /var/lib/jenkins/jobs
 tar xvfz workspaces.tgz
 rm -f /var/lib/jenkins/jobs/workspaces.tgz
+chown -R jenkins:jenkins /var/lib/jenkins/jobs
 
 # Start jenkins
 service jenkins start
