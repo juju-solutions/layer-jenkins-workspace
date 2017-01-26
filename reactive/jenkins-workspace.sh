@@ -28,7 +28,7 @@ function install_prerequisite_software() {
   # Append the DOCKER_OPTS to the /etc/default/docker configuration file.
   cat << EOF > /etc/default/docker
 # THIS FILE IS MANAGED BY A BUILD SCRIPT!
-DOCKER_OPTS="--storage-driver=aufs"
+DOCKER_OPTS="--storage-driver=aufs -H unix:///var/run/docker-bootstrap.sock -H tcp://127.0.0.1:2375"
 EOF
   # Restart the docker daemon to get the new AUFS support.
   service docker restart || true
